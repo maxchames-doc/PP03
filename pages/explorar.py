@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 iris = sns.load_dataset('iris')
 registros = len(iris)
 atributos = iris.shape
+tipos = iris.dtypes.astype(str)
 estadistico = iris.describe()
 categorias = iris.species.unique()
 g = sns.pairplot(iris, hue='species')
@@ -18,7 +19,10 @@ def show_explore_page():
     col1.metric("Registros", registros)
     col2.metric("Atributos", atributos[1]-1)
 
-    st.subheader("Valores de las variable categórica")
+    st.subheader("Estructura de datos del dataset")
+    st.write(tipos)
+
+    st.subheader("Valores de la variable categórica")
     st.dataframe(categorias)
 
     st.subheader("Resumen estadístico")
@@ -30,8 +34,6 @@ def show_explore_page():
     st.write("""#### Relaciones entre atributos""")
 
     st.pyplot(g)
-
-
 
 
 show_explore_page()
