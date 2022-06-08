@@ -16,10 +16,11 @@ def show_predict_page():
     st.title("Predicción de Tipos de Flores (IRIS DATASET")
 
     st.write("""### Ingrese los parametros""")
-    sepal_l = st.number_input("Largo del sépalo")
-    sepal_w = st.number_input("Ancho del sépalo")
-    petal_l = st.number_input("Largo del pétalo")
-    petal_w = st.number_input("Ancho del pétalo")
+    col1, col2, col3, col4 = st.columns(4)
+    sepal_l = col1.number_input("Largo del sépalo")
+    sepal_w = col2.number_input("Ancho del sépalo")
+    petal_l = col3.number_input("Largo del pétalo")
+    petal_w = col4.number_input("Ancho del pétalo")
 
     ok = st.button("Calcular el tipo de flor")
     if ok:
