@@ -27,7 +27,9 @@ def show_predict_page():
         X = np.array([[sepal_l,sepal_w,petal_l,petal_w]])
         y = modelo.predict(X)
         tipo = {0: 'setosa', 1: 'versicolor', 2:'virginica'}
+        imagen = {0: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/220px-Kosaciec_szczecinkowaty_Iris_setosa.jpg', 1: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/220px-Iris_versicolor_3.jpg', 2: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/220px-Iris_virginica.jpg'}
 
         st.subheader(f"La flor es del tipo {tipo[y[0]]}")
+        st.image(imagen[y[0]])
 
 show_predict_page()
